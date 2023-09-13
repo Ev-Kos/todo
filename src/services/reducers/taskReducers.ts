@@ -1,6 +1,8 @@
 import {
   ADD_TASK,
   REMOVE_TASK,
+  UPDATE_TASK,
+  EDITE_TASK,
   TTaskActions
 } from '../actions/taskActions';
 import { TTask } from '../types/data';
@@ -26,6 +28,7 @@ export const taskReducer = (
           {
             id: uuidv4(),
             text: action.text,
+            editing: false
           },
         ],
       };
@@ -34,6 +37,20 @@ export const taskReducer = (
       return {
         data: state.data.filter((item) => item.id !== action.id)
       };
+    }
+    case UPDATE_TASK: {
+      return {
+        data: state.data.map((item) => ((item.id === action.id)
+        ? {...item, text: action.text, editing: false}
+        : item))
+      }
+    }
+    case EDITE_TASK: {
+      return {
+        data: state.data.map((item) => ((item.id === action.id)
+        ? {...item, editing: true}
+        : item))
+      }
     }
     default: {
       return state;
