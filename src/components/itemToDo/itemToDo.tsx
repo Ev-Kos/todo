@@ -65,17 +65,23 @@ export const ItemToDo = ({
       {!task.editing ? (
       <>
       <div className={styles.taskContainer}>
-        <div className={task.completed? styles.taskTextCompleted : styles.taskText}>{task.text}</div>
+        <span className={task.completed? styles.checkboxWrap : styles.checkboxWrapDis}>
+          <InputToDo type='checkbox' onChange={()=>completedTask(task.id)} className={styles.checkbox}/>
+        </span>
+
+        <p className={task.completed? styles.taskTextCompleted : styles.taskText}>{task.text}</p>
+
       </div>
+
       <div className={styles.btnContainer}>
         <Button onClick={()=>updateTask(task.id)} disabled={false} text='Редактировать'/>
         <Button onClick={()=>removeTask(task.id)} disabled={false} text='Удалить'/>
-        <Button onClick={()=>completedTask(task.id)} disabled={false} text='Выполнена'/>
+
       </div>
       </>) : (
         <>
         <div className={styles.taskContainer}>
-        <InputToDo ref={inputText} value={inputUpdateTask} onKeyDown={onKeyPressCanceledEditingTask} onChange={onChangeInputUpdateTask} />
+        <InputToDo type='text' ref={inputText} value={inputUpdateTask} onKeyDown={onKeyPressCanceledEditingTask} onChange={onChangeInputUpdateTask} />
       </div>
       <div className={styles.btnContainer}>
         <Button onClick={()=>updateTask(task.id)} text='Редактировать' disabled={false}/>

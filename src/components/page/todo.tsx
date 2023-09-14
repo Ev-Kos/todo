@@ -89,29 +89,32 @@ const countTest = () => {
         value={inputNewTask}
         onChange={onChangeInputNewTask}
         onKeyDown={onKeyPressInputNewTask}
-        ref={inputTextt}/>
-        <Button onClick={addTask} text='Добавить задачу' disabled={inputNewTask.length !== 0 ? false : true}/>
+        ref={inputTextt}
+        className={styles.input}
+        placeholder='Ваша задача'
+        type='text'/>
+        <Button className={inputNewTask.length !== 0 ? styles.addButton: styles.addButtonDis} onClick={addTask} text='Добавить задачу' disabled={inputNewTask.length !== 0 ? false : true}/>
       </div>
+      {tasks.length !== 0 &&
       <div className={styles.listContainer}>
-        <p>Количество задач: {countTest()}</p>
+        <p className={styles.counterText}>Количество задач:&nbsp;
+          <span className={styles.counter}>{countTest()}</span>
+        </p>
         <div className={styles.scroll}>
           <ul className={styles.list}>
-            {tasks && filterItems(tasks).map((item, index) =>
+            {filterItems(tasks).map((item, index) =>
             <ItemToDo task={item}
               key={item.id}
               />
             )}
           </ul>
         </div>
-
-        {tasks.length !== 0 ? (<div className={styles.filterContainer}>
+        <div className={styles.filterContainer}>
             <Button onClick={()=>dispatch(ShowAllTask())} text='Все задачи' disabled={false}/>
             <Button onClick={()=>dispatch(ShowCompleteTask())} text='Выполненные' disabled={false}/>
             <Button onClick={()=>dispatch(ShowActiveTask())} text='Активные' disabled={false}/>
-          </div>) : null}
-      </div>
-
-
+          </div>
+      </div>}
     </div>
 
   )

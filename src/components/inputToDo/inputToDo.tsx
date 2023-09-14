@@ -1,18 +1,23 @@
-import styles from './inputToDo.module.css';
 import {  HTMLProps, forwardRef } from 'react';
 
-type Ref = HTMLInputElement
+type TProps = {
+  className: string;
+}
 
-export const InputToDo = forwardRef<Ref, HTMLProps<HTMLInputElement>>(({ defaultValue, value, onChange, onKeyDown}, ref) => {
+type Ref = HTMLInputElement;
+
+type Props = TProps & Ref
+
+export const InputToDo = forwardRef<Props, HTMLProps<HTMLInputElement>>(({ defaultValue, type, value, onChange, onKeyDown, className, placeholder}, ref) => {
   //const ref = useRef<HTMLInputElement>(null);
   return (
-    <input type="text"
-      placeholder='Введите задачу'
+    <input type={type}
+      placeholder={placeholder}
       onChange={onChange}
       onKeyDown={onKeyDown}
       value={value}
-      className={styles.input}
       ref={ref}
-      defaultValue={defaultValue}/>
+      defaultValue={defaultValue}
+      className={className}/>
   )
 })

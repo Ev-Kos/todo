@@ -1,0 +1,30 @@
+.header {
+  width: 100%;
+  /* background-image: radial-gradient(
+    circle at 84.09% 90.63%, #6dc391 0, #5fc49b 5%,
+    #50c5a5 10%, #40c5af 15%, #2ec6b9 20%,
+    #14c6c3 25%, #00c5cd 30%, #00c5d6 35%,
+    #00c4df 40%, #00c3e6 45%, #0cc1ed 50%,
+    #2ebff3 55%, #45bdf7 60%, #59bafa 65%,
+    #6cb8fc 70%, #7eb4fc 75%, #8fb1fb 80%,
+    #9faef9 85%, #aeaaf5 90%, #bca6f0 95%, #c8a3ea 100%); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background:
+      linear-gradient(rgba(135, 60, 255, 0.4), rgba(135, 60, 255, 0.0) 80%),
+      linear-gradient(-45deg, rgba(120, 155, 255, 0.9) 25%, rgba(255, 160, 65, 0.9) 75%); */
+    height: 100px;
+    /* background-color: #7B68EE; */
+    /* background-color: #4169E1; */
+    /* background-image: linear-gradient(-225deg, #5271C4 0%, #B19FFF 48%, #ECA1FE 100%); */
+    background-image: linear-gradient(180deg, #5271C4 0%, #7B68EE 48%, #B19FFF 100%);
+
+}
+
+.title {
+  margin: 0;
+  color: #fff;
+  font-weight: 600;
+  font-size: 44px;
+}

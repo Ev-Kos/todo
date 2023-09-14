@@ -1,12 +1,6 @@
 .page {
   display: flex;
   flex-direction: column;
-  padding: 20px;
   align-items: center;
   gap: 30px;
-}
-
-.title {
-  align-self: center;
-  margin: 0;
 }

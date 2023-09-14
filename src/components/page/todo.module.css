@@ -1,23 +1,22 @@
 .container {
   display: flex;
-  gap: 5%;
-  width: 100%;
+  flex-direction: column;
+  gap: 50px;
+  width: 70%;
+  align-items: center;
 }
 
 .addContainer {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  width: 45%;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .listContainer {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  width: 45%;
+  gap: 45px;
+  width: 100%;
 }
 
 .list {
@@ -26,6 +25,7 @@
   gap: 10px;
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .filterContainer {
@@ -43,8 +43,6 @@
     box-sizing: border-box;
     max-height: calc(100vh - 611px);
     cursor: pointer;
-    display: flex;
-    justify-content: center;
 }
 
 ::-webkit-scrollbar {
@@ -61,3 +59,62 @@
 ::-webkit-scrollbar-thumb:hover {
   background-color: #253861;
 }
+
+.input {
+  width: 70%;
+  box-sizing: border-box;
+  border: 2px solid #7B68EE;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.input:focus {
+  box-shadow:  0 0 10px 2px #7B68EE;
+  outline: 0;
+  outline-offset: 0;
+}
+
+.input::placeholder {
+  color: #778899;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.addButton {
+  border-radius: 20px;
+  width: 150px;
+  background-color: #7B68EE;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  opacity: 0.7;
+}
+
+.addButtonDis {
+  border-radius: 20px;
+  width: 150px;
+  background-color: #d7d3ee;
+  border: none;
+  color: #fff;
+  padding: 10px;
+}
+
+.counterText {
+  color: #7B68EE;
+  font-weight: 600;
+  font-size: 24px;
+  margin: 0;
+}
+
+.counter {
+  color: #7B68EE;
+  font-weight: 600;
+  font-size: 24px;
+  text-decoration: underline;
+}
+
+

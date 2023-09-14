@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Oswald', monospace;
+  src: url("./Oswald-Light.ttf") format("ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Oswald', monospace;
+  src: url("./Oswald-Regular.ttf") format("ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Oswald', cursive;
+  font-weight: 600;
+  src: url("./Oswald-SemiBold.ttf") format("ttf")
+}
+

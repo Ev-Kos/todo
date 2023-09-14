@@ -1,12 +1,9 @@
 .listContainer {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-}
-
-.taskContainer {
-  display: flex;
-  gap: 5px;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 95%;
 }
 
 .btnContainer {
@@ -14,10 +11,54 @@
   gap: 5px;
 }
 
+.taskContainer {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  height: 40px;
+}
+
 .taskText {
-  color:black;
+  color:#535357;
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+  font-weight: 400;
+  font-size: 24px;
 }
 
 .taskTextCompleted {
-  color:red;
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+  color:#535357;
+  text-decoration: line-through;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.checkbox {
+  opacity: 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.checkboxWrapDis {
+  width: 30px;
+  height: 28px;
+  border: 2px solid #7B68EE;
+}
+
+.checkboxWrap {
+  width: 30px;
+  height: 28px;
+  border: 2px solid #7B68EE;
+  background-image: url('../../images/check.svg');
+  background-size: contain;
+}
+
+.checkboxWrapDis:hover {
+  background-image: url('../../images/check.svg');
+  background-size: contain;
 }

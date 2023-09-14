@@ -65,7 +65,7 @@ export const taskReducer = (
     case COMPLETED_TASK: {
       return {
         data: state.data.map((item) => ((item.id === action.id)
-        ? {...item, completed: true}
+        ? {...item, completed: !item.completed}
         : item))
       }
     }
