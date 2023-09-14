@@ -1,7 +1,9 @@
 import styles from './inputToDo.module.css';
-import {  HTMLProps, useRef } from 'react';
+import {  HTMLProps, forwardRef } from 'react';
 
-export const InputToDo = ({ defaultValue, value, onChange, onKeyDown, ref }: HTMLProps<HTMLInputElement>) => {
+type Ref = HTMLInputElement
+
+export const InputToDo = forwardRef<Ref, HTMLProps<HTMLInputElement>>(({ defaultValue, value, onChange, onKeyDown}, ref) => {
   //const ref = useRef<HTMLInputElement>(null);
   return (
     <input type="text"
@@ -13,4 +15,4 @@ export const InputToDo = ({ defaultValue, value, onChange, onKeyDown, ref }: HTM
       ref={ref}
       defaultValue={defaultValue}/>
   )
-}
+})

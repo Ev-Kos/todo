@@ -1,1 +1,6 @@
-export const useDispatch = () => {};
+export enum VisibilityFilters {
+  SHOW_ALL = 'SHOW_ALL',
+  SHOW_ACTIVE = 'SHOW_ACTIVE',
+  SHOW_COMPLETED = 'SHOW_COMPLETED',
+  UPDATE_FILTER = 'UPDATE_FILTER'
+}

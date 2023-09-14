@@ -13,3 +13,11 @@
   display: flex;
   gap: 5px;
 }
+
+.taskText {
+  color:black;
+}
+
+.taskTextCompleted {
+  color:red;
+}

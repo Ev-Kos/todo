@@ -2,9 +2,11 @@ import { store } from '../store';
 import { ThunkAction } from 'redux-thunk';
 import { Action, ActionCreator } from 'redux';
 import { TTaskActions } from '../actions/taskActions';
+import { TFilterActions } from '../actions/filterAction';
 
 type TApplicationActions =
   | TTaskActions
+  | TFilterActions
   ;
 
 export type RootState = ReturnType<typeof store.getState>;

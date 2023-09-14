@@ -3,6 +3,8 @@ import {
   REMOVE_TASK,
   UPDATE_TASK,
   EDITE_TASK,
+  COMPLETED_TASK,
+  CANCEL_EDITE_TASK,
   TTaskActions
 } from '../actions/taskActions';
 import { TTask } from '../types/data';
@@ -28,7 +30,8 @@ export const taskReducer = (
           {
             id: uuidv4(),
             text: action.text,
-            editing: false
+            editing: false,
+            completed: false
           },
         ],
       };
@@ -49,6 +52,20 @@ export const taskReducer = (
       return {
         data: state.data.map((item) => ((item.id === action.id)
         ? {...item, editing: true}
+        : item))
+      }
+    }
+    case CANCEL_EDITE_TASK: {
+      return {
+        data: state.data.map((item) => ((item.id === action.id)
+        ? {...item, editing: false}
+        : item))
+      }
+    }
+    case COMPLETED_TASK: {
+      return {
+        data: state.data.map((item) => ((item.id === action.id)
+        ? {...item, completed: true}
         : item))
       }
     }
