@@ -1,5 +1,5 @@
 import { ShowActiveTask, ShowAllTask, ShowCompleteTask } from '../../services/actions/filterAction';
-import { AddTask, EditeTask, RemoveTask, UpdateTask } from '../../services/actions/taskActions';
+import { AddTask } from '../../services/actions/taskActions';
 import { useDispatch, useSelector } from '../../services/hooks';
 import { TTask } from '../../services/types/data';
 import { Button } from '../button/button';
@@ -7,21 +7,18 @@ import { InputToDo} from '../inputToDo/inputToDo';
 import { ItemToDo } from '../itemToDo/itemToDo';
 import styles from './todo.module.css';
 import { useState, ChangeEvent, KeyboardEvent, useRef, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 export const Todo = () => {
   const tasks = useSelector((store) => store.taskReducer.data);
-  const filterS = useSelector((store) => store.filterReducer);
+  const filter = useSelector((store) => store.filterReducer);
   const [inputNewTask, setInputNewTask] = useState('');
-
+  const inputText = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
 
-  const inputTextt = useRef<HTMLInputElement>(null);
   useEffect(() => {
     if(tasks.length === 0) {
-      inputTextt?.current?.focus()
+      inputText?.current?.focus()
     }
-
   });
 
   const onChangeInputNewTask = (e: ChangeEvent<HTMLInputElement>) => {
@@ -43,40 +40,25 @@ export const Todo = () => {
       setInputNewTask('');
     }
   }
-// const count =() => {
-//   let res;
-//   filterS.showAll
-//   ? res=tasks.length
-//   :  res=tasks.filter((item) => !item.completed).length
-//   ? filterS.showCompleted
-//   : res=tasks.filter((item) => item.completed).length
-// }
 
-// const res = count()
-
-const countTest = () => {
-  let count: number;
-  if(filterS.showAll) {
+  const countTasks = () => {
+    if(filter.showAll) {
+      return tasks.length
+    }
+    if(filter.showActive) {
+      return tasks.filter((item) => !item.completed).length;
+    }
+    if(filter.showCompleted) {
+      return tasks.filter((item) => item.completed).length;
+    }
     return tasks.length
-  }
-  if(filterS.showActive) {
-    return tasks.filter((item) => !item.completed).length;
-  }
-  if(filterS.showCompleted) {
-    return tasks.filter((item) => item.completed).length;
-  }
-  return tasks.length
-};
+  };
 
   const filterItems = (items: TTask[]) => {
-    if(filterS.showAll) {
-      return items;
-
-    }
-    if(filterS.showActive) {
+    if(filter.showActive) {
       return items.filter((item) => !item.completed);
     }
-    if(filterS.showCompleted) {
+    if(filter.showCompleted) {
       return items.filter((item) => item.completed);
     }
     return items
@@ -89,7 +71,7 @@ const countTest = () => {
         value={inputNewTask}
         onChange={onChangeInputNewTask}
         onKeyDown={onKeyPressInputNewTask}
-        ref={inputTextt}
+        ref={inputText}
         className={styles.input}
         placeholder='Ваша задача'
         type='text'/>
@@ -97,10 +79,24 @@ const countTest = () => {
       </div>
       {tasks.length !== 0 &&
       <div className={styles.listContainer}>
+        <div className={styles.filterContainer}>
+          <Button className={filter.showAll ? styles.filterButtonActive : styles.filterButton}
+            onClick={()=>dispatch(ShowAllTask())}
+            text='Все задачи'
+            disabled={false}/>
+          <Button className={filter.showCompleted ? styles.filterButtonActive : styles.filterButton}
+            onClick={()=>dispatch(ShowCompleteTask())}
+            text='Выполненные'
+            disabled={false}/>
+          <Button className={filter.showActive ? styles.filterButtonActive : styles.filterButton}
+            onClick={()=>dispatch(ShowActiveTask())}
+            text='Активные'
+            disabled={false}/>
+        </div>
         <p className={styles.counterText}>Количество задач:&nbsp;
-          <span className={styles.counter}>{countTest()}</span>
+          <span className={styles.counter}>{countTasks()}</span>
         </p>
-        <div className={styles.scroll}>
+        <div className={tasks.length > 7 ? styles.scroll : ''}>
           <ul className={styles.list}>
             {filterItems(tasks).map((item, index) =>
             <ItemToDo task={item}
@@ -109,13 +105,7 @@ const countTest = () => {
             )}
           </ul>
         </div>
-        <div className={styles.filterContainer}>
-            <Button onClick={()=>dispatch(ShowAllTask())} text='Все задачи' disabled={false}/>
-            <Button onClick={()=>dispatch(ShowCompleteTask())} text='Выполненные' disabled={false}/>
-            <Button onClick={()=>dispatch(ShowActiveTask())} text='Активные' disabled={false}/>
-          </div>
       </div>}
     </div>
-
   )
 }

@@ -8,8 +8,8 @@ type Ref = HTMLInputElement;
 
 type Props = TProps & Ref
 
-export const InputToDo = forwardRef<Props, HTMLProps<HTMLInputElement>>(({ defaultValue, type, value, onChange, onKeyDown, className, placeholder}, ref) => {
-  //const ref = useRef<HTMLInputElement>(null);
+export const InputToDo = forwardRef<Props, HTMLProps<HTMLInputElement>>(
+  ({ defaultValue, type, value, onChange, onKeyDown, className, placeholder}, ref) => {
   return (
     <input type={type}
       placeholder={placeholder}

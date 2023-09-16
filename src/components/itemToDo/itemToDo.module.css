@@ -1,21 +1,23 @@
 .listContainer {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex-wrap: wrap;
   width: 95%;
+  border-bottom: 1px solid #bbbbbe;
+  padding-bottom: 20px;
+  justify-content: space-between;
 }
 
 .btnContainer {
   display: flex;
-  gap: 5px;
+  gap: 15px;
+  align-items: center;
 }
 
 .taskContainer {
   display: flex;
   gap: 15px;
   align-items: center;
-  height: 40px;
+  height: 50px;
+  width: 75%;
 }
 
 .taskText {
@@ -47,18 +49,149 @@
 .checkboxWrapDis {
   width: 30px;
   height: 28px;
-  border: 2px solid #7B68EE;
+  border: 3px solid #7B68EE;
+  border-radius: 5px;
 }
 
 .checkboxWrap {
   width: 30px;
   height: 28px;
-  border: 2px solid #7B68EE;
+  border: 3px solid #7B68EE;
   background-image: url('../../images/check.svg');
   background-size: contain;
+  border-radius: 5px;
 }
 
 .checkboxWrapDis:hover {
   background-image: url('../../images/check.svg');
   background-size: contain;
+  opacity: 0.7;
+}
+
+.editButton {
+  background-image: url('../../images/edit-button.svg');
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  border: none;
+  background-color: inherit;
+  background-repeat: no-repeat;
+  padding: 0;
+  cursor: pointer;
+}
+
+.editButton:hover {
+  opacity: 0.7;
+}
+
+.deleteButton {
+  background-image: url('../../images/delete-button.svg');
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  border: none;
+  background-color: inherit;
+  background-repeat: no-repeat;
+  padding: 0;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  opacity: 0.7;
+}
+
+.editInput {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #7B68EE;
+  border-radius: 10px;
+  padding: 10px;
+  color:#535357;
+}
+
+.editInput:focus {
+  outline: 0;
+  outline-offset: 0;
+}
+
+.saveButton {
+  background-image: url('../../images/save-button.svg');
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  border: none;
+  background-color: inherit;
+  background-repeat: no-repeat;
+  padding: 0;
+  cursor: pointer;
+}
+
+.saveButton:hover {
+  opacity: 0.7;
+}
+
+.cancelButton {
+  background-image: url('../../images/cancel-button.svg');
+  width: 42px;
+  height: 42px;
+  background-size: contain;
+  border: none;
+  background-color: inherit;
+  background-repeat: no-repeat;
+  padding: 0;
+  cursor: pointer;
+}
+
+.cancelButton:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 767px) {
+  .btnContainer {
+    gap: 10px;
+    align-self: center;
+  }
+  .taskText {
+    font-size: 20px;
+  }
+  .taskTextCompleted {
+    font-size: 20px;
+  }
+  .checkbox {
+    width: 25px;
+    height: 25px;
+  }
+
+  .checkboxWrapDis {
+    width: 25px;
+    height: 23px;
+  }
+
+  .checkboxWrap {
+    width: 25px;
+    height: 23px;
+  }
+  .editButton {
+    width: 30px;
+    height: 30px;
+  }
+  .deleteButton {
+    width: 39px;
+    height: 39px;
+  }
+
+  .saveButton {
+    width: 30px;
+    height: 30px;
+  }
+  .cancelButton {
+    width: 32px;
+    height: 32px;
+  }
+  .listContainer {
+    flex-direction: column;
+  }
+  .taskContainer {
+    width: 100%;
+  }
 }

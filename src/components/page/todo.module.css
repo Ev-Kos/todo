@@ -10,6 +10,8 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  box-sizing: border-box;
+  padding-right: 5%;
 }
 
 .listContainer {
@@ -33,31 +35,29 @@
   gap: 10px;
 }
 
-  .scroll {
-    padding: 0;
-    margin: 0;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-    width: 100%;
-    box-sizing: border-box;
-    max-height: calc(100vh - 611px);
-    cursor: pointer;
+.scroll {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  width: 100%;
+  box-sizing: border-box;
+  max-height: calc(100vh - 400px);
+  cursor: pointer;
+  scrollbar-color: #7B68EE #dcd9ec;
+  scrollbar-width: thin;
 }
 
 ::-webkit-scrollbar {
   width: 10px;
-  height: 8px;
-  background-color: #143861;
+  background-color: #dcd9ec;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #843465;
-  border-radius: 9em;
-  box-shadow: inset 1px 1px 10px #f3faf7;
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: #253861;
+  background-color: #7B68EE;
+  border-radius: 10px;
 }
 
 .input {
@@ -117,4 +117,62 @@
   text-decoration: underline;
 }
 
+.filterButtonActive {
+  border: none;
+  background-color: inherit;
+  border-bottom: 1px solid #bbbbbe;
+  color: #7B68EE;
+  cursor: pointer;
+  padding: 0;
+}
+
+.filterButton {
+  border: none;
+  background-color: inherit;
+  border-bottom: 1px solid #bbbbbe;
+  color: #778899;
+  cursor: pointer;
+  padding: 0;
+}
+
+.filterButton:hover {
+  border-bottom: 1px solid #bbbbbe;
+  cursor: pointer;
+  color: #7B68EE;
+}
+
+.filterButtonActive:hover {
+  opacity: 0.7;
+}
+
+
+@media screen and (max-width: 767px) {
+  .addContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-right: 0;
+    gap: 20px;
+  }
+  .container {
+    gap: 40px;
+    width: 80%;
+  }
+  .filterButtonActive {
+    font-size: 12px;
+  }
+  .filterButton {
+    font-size: 12px;
+  }
+  .filterContainer {
+    justify-content: center;
+  }
+  .counterText {
+    font-size: 20px;
+  }
+  .input {
+    width: 100%;
+  }
+}
 

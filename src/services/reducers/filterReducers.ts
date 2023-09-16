@@ -2,11 +2,8 @@ import {
   SHOW_ALL,
   SHOW_ACTIVE,
   SHOW_COMPLETED,
-  UPDATE_FILTER,
   TFilterActions
 } from '../actions/filterAction';
-import { TTask } from '../types/data';
-import { v4 as uuidv4 } from 'uuid';
 
 type TInitialState = {
   showAll: boolean;
@@ -15,7 +12,7 @@ type TInitialState = {
 };
 
 const initialState: TInitialState = {
-  showAll: false,
+  showAll: true,
   showActive: false,
   showCompleted: false
 };
