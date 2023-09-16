@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "./static/css/main.652ec938.css",
+    "main.js": "./static/js/main.ac3f3b25.js",
+    "static/js/787.63e47474.chunk.js": "./static/js/787.63e47474.chunk.js",
+    "static/media/Oswald-SemiBold.ttf": "./static/media/Oswald-SemiBold.ddc9cdcf259f8e6a1d35.ttf",
+    "static/media/Oswald-Light.ttf": "./static/media/Oswald-Light.ba7a0a165ea1a69244a7.ttf",
+    "static/media/Oswald-Regular.ttf": "./static/media/Oswald-Regular.31bce04a1ae8549b1464.ttf",
+    "static/media/save-button.svg": "./static/media/save-button.566e3924af7646b6a02f.svg",
+    "static/media/delete-button.svg": "./static/media/delete-button.4d7ef47e675be09d46a1.svg",
+    "static/media/edit-button.svg": "./static/media/edit-button.3781a6bffc698f8c7133.svg",
+    "static/media/cancel-button.svg": "./static/media/cancel-button.560f99c8e686309342b1.svg",
+    "index.html": "./index.html",
+    "static/media/check.svg": "./static/media/check.5c14c7eb46ece2a22135.svg",
+    "main.652ec938.css.map": "./static/css/main.652ec938.css.map",
+    "main.ac3f3b25.js.map": "./static/js/main.ac3f3b25.js.map",
+    "787.63e47474.chunk.js.map": "./static/js/787.63e47474.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.652ec938.css",
+    "static/js/main.ac3f3b25.js"
+  ]
+}
